@@ -47,8 +47,8 @@ class PokemonPlanta(Pokemon):
 # class PokemonPsiquico(Pokemon):
 #     tipo = "Psíquico"
                                           
-meu_pokemon = Pokemon("Charmander", "50")
+meu_pokemon = PokemonFogo("Charmander", "50")
 
-pokemon_amigo = Pokemon("Squirtle", "20")
+pokemon_amigo = PokemonAgua("Squirtle", "20")
 
-print(meu_pokemon.nome)
+
