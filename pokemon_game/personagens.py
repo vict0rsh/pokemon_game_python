@@ -11,16 +11,32 @@ class Personagem:
     def __str__(self):
         return self.nome
     
+    def mostrar_pokemons(self):
+        if self.pokemons:
+            print("Pokemons de {}:".format(self))
+            for pokemon in self.pokemons:
+                print(pokemon)
+        else: 
+            print("{} não tem nenhum pokemon ainda.".format(self))
+       
 class Player(Personagem):
     tipo = "Player"
+    
+    def capturar(self, pokemon):
+        self.pokemons.append(pokemon)
+        print("{} capturou {}!".format(self, pokemon))
+        
     
     
 class Inimigo(Personagem):
     tipo = "Inimigo"
     
     
-PlayerOne = Player("Victor", (meu_pokemon, pokemon_amigo))
+PlayerOne = Player("Victor", pokemons=[meu_pokemon])
 
-print(PlayerOne)
-for pokemon in PlayerOne.pokemons:
-    print(pokemon)          
+PlayerOne.capturar(pokemon_selvagem)
+
+PlayerOne.mostrar_pokemons()
+
+
+        

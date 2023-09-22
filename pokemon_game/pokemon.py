@@ -9,7 +9,7 @@ class Pokemon:
             self.nome = especie            
         
     def __str__(self):
-        return "{} ({})".format(self.especie, self.tipo)
+        return "{} ({})".format(self.especie, self.level)
     
     def atacar(self, inimigo):
         print("{} atacou {}".format(self, inimigo))
@@ -47,8 +47,8 @@ class PokemonPlanta(Pokemon):
 # class PokemonPsiquico(Pokemon):
 #     tipo = "Psíquico"
                                           
-meu_pokemon = PokemonFogo("Charmander", "50")
+meu_pokemon = PokemonFogo("Charmander")
 
 pokemon_amigo = PokemonAgua("Squirtle", "20")
 
-
+pokemon_selvagem = PokemonEletrico("Pikachu", "15")
