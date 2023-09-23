@@ -1,31 +1,48 @@
-class Pokemon:
-    
-    def __init__(self, especie, level = 1, nome = None):
+import random
+
+
+class Pokemon:    
+    tipo = "Normal"
+        
+    def __init__(self, especie, level = None, nome = None): #inicio do objeto pokemon
         self.especie = especie
-        self.level = level
+        self.tipo = self.tipok()
+        # level randomico
+        if level:
+            self.level = level
+        else:
+            self.level = random.randint(1, 100)
+        # nome = especie caso vazio    
         if nome:
             self.nome = nome
         else:
             self.nome = especie            
+    
+    def tipok(self):
+        return "Normal"
         
     def __str__(self):
-        return "{} ({})".format(self.especie, self.level)
+        return "{} ({})".format(self.especie, self.level) #print mostra especie do pokemon e level
     
     def atacar(self, inimigo):
         print("{} atacou {}".format(self, inimigo))
         
 class PokemonEletrico(Pokemon):
-    tipo = 'Elétrico'        
-
+    def tipok(self):
+        return "Elétrico"
+        
 class PokemonFogo(Pokemon):
-    tipo = "Fogo" 
+    def tipok(self):
+        return "Fogo"
     
 class PokemonAgua(Pokemon):
-    tipo = "Água"
+    def tipok(self):
+        return "Água"
 
 class PokemonPlanta(Pokemon):
-    tipo = "Planta"
-    
+    def tipok(self):
+        return "Planta"
+               
 # class PokemonLutador(Pokemon):
 #     tipo = "Lutador"
 
@@ -46,9 +63,26 @@ class PokemonPlanta(Pokemon):
     
 # class PokemonPsiquico(Pokemon):
 #     tipo = "Psíquico"
+
                                           
-meu_pokemon = PokemonFogo("Charmander")
+POKEMONS =[
+    PokemonFogo("Flareon"),
+    PokemonFogo("Charmander"),
+    PokemonFogo("Arcanine"),
+    PokemonAgua("Tentacool"),
+    PokemonAgua("Squirtle"),
+    PokemonAgua("Magikarp"),
+    PokemonEletrico("Raichu"),
+    PokemonEletrico("Rayquaza"),
+    PokemonEletrico("Voltorb"),
+    PokemonPlanta("Bulbassauro"),
+    PokemonPlanta("Oddish"),
+    PokemonPlanta("Bellsprout"),
+    Pokemon("Ratata"),
+    Pokemon("Meowth"),
+    Pokemon("Chansey")
+    ]
 
-pokemon_amigo = PokemonAgua("Squirtle", "20")
-
-pokemon_selvagem = PokemonEletrico("Pikachu", "15")
+Charmanderinic = PokemonFogo("Charmander", level = 5)
+Squirtleinic = PokemonAgua("Squirtle", level = 5)
+Bulbassauroinic = PokemonPlanta("Bulbassauro", level = 5)
