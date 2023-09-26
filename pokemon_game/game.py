@@ -1,17 +1,7 @@
-from pokemon import *
-from personagens import *
-import os
-
-
-
-def limpar_tela():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    
-def pause():
-    input("\nPressione a tecla <ENTER> para continuar...")    
+from data.pokemon import *
+from data.personagens import *
+from data.functions.osfunctions import *  
  
-    
 def iniciogame():
     limpar_tela()
     print("Você é um adolescente apaixonado pelo mundo Pokémon, mas sua mãe nunca te deixou explorar o universo Pokémon, ela diz que é muito perigoso para uma criança.")
@@ -67,8 +57,13 @@ def escolher_inicial(player):
             break
         else:
             print("\n<<<<<<<< [ERRO] Por favor, digite o nome do pokémon corretamente!")
+    pause(), limpar_tela()
+    playerone.batalha_selva(Rattatainic)
 
-
+gary = Inimigo("gary")
+gary.mostrar_pokemons()
+pause()
 playerone = iniciogame()
 escolher_inicial(playerone)
+
          
